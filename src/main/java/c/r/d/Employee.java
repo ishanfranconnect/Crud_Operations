@@ -1,6 +1,7 @@
 package c.r.d;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -39,5 +40,15 @@ public class Employee {
 	private String emp_lname;
 	@Column(name="Emp_City")
 	private String emp_city;
+
+    @Embedded
+	private Phone no;
+	public Phone getPhone(){
+		return no;
+		}
+	public void setPhone(Phone no){
+		this.no=no;
+	}
+
 }
  

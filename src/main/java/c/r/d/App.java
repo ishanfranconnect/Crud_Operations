@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+
 public class App 
 {
     public static void main( String[] args )
@@ -14,19 +15,23 @@ public class App
         Session session=sf.openSession();
         Transaction tr=session.beginTransaction();
 //        it is used at the time of creating
-//        Employee eo1=new Employee();
-//        eo1.setEmp_fname("hello");
-//        eo1.setEmp_lname("ishan");
-//        eo1.setEmp_city("newdelhi");
-//        
-//        try {
-//        	session.save(eo1);
-//        	tr.commit();
-//        	System.out.println("data saved");
-//        } catch(Exception e) {
-//        	tr.rollback();
-//        	e.printStackTrace();
-//        }
+       Employee eo1=new Employee();
+       eo1.setEmp_fname("hello");
+       eo1.setEmp_lname("ishan");
+       eo1.setEmp_city("newdelhi");
+
+       Phone ao=new Phone();
+       ao.setId(6);
+    //    copy constructor
+       eo1.setPhone(ao);
+       try {
+       	session.save(eo1);
+       	tr.commit();
+       	System.out.println("data saved");
+       } catch(Exception e) {
+       	tr.rollback();
+       	e.printStackTrace();
+       }
         
         
 //        now fetching data from database;
@@ -50,15 +55,15 @@ public class App
 //        
 
 //        delete data from database
-        try {
-        Employee eo4=new Employee();
-        eo4.setEmp_id(1);
-        session.delete(eo4);
-        tr.commit();
-        System.out.println("data deleted");
-        } catch(Exception e) {
-        	tr.rollback();
-        	e.printStackTrace();
-        }
+        // try {
+        // Employee eo4=new Employee();
+        // eo4.setEmp_id(1);
+        // session.delete(eo4);
+        // tr.commit();
+        // System.out.println("data deleted");
+        // } catch(Exception e) {
+        // 	tr.rollback();
+        // 	e.printStackTrace();
+        // }
     }
 }
