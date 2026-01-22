@@ -4,20 +4,15 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-
 public class App 
 {
     public static void main( String[] args )
     {
         Configuration cfg=new Configuration();
         cfg.configure("/h/t/a/hibernate.cfg.xml");
-        
         SessionFactory sf=cfg.buildSessionFactory();
         Session session=sf.openSession();
         Transaction tr=session.beginTransaction();
-        
-        
-      
 //        it is used at the time of creating
 //        Employee eo1=new Employee();
 //        eo1.setEmp_fname("hello");

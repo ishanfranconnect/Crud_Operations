@@ -1,10 +1,10 @@
 package c.r.d;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
-@Entity
+@Entity(name="Emp_Table")
 public class Employee {
 	@Id
 	@GeneratedValue
@@ -33,8 +33,11 @@ public class Employee {
 	public void setEmp_city(String emp_city) {
 		this.emp_city = emp_city;
 	}
+	@Column(name="Emp_FirstName")
 	private String emp_fname;
+	@Column(name="Emp_ListName")
 	private String emp_lname;
+	@Column(name="Emp_City")
 	private String emp_city;
 }
  
