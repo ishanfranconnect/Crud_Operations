@@ -9,29 +9,59 @@ public class App
 {
     public static void main( String[] args )
     {
+        State s1=new State();
+        s1.setS_id(1);
+        s1.setS_name("Bihar");
+        
+        Capital c1=new Capital();
+        c1.setC_id(2);
+        c1.setC_name("Patna");
+        
+
+        c1.setS(s1);
         Configuration cfg=new Configuration();
         cfg.configure("/h/t/a/hibernate.cfg.xml");
         SessionFactory sf=cfg.buildSessionFactory();
         Session session=sf.openSession();
         Transaction tr=session.beginTransaction();
-//        it is used at the time of creating
-       Employee eo1=new Employee();
-       eo1.setEmp_fname("hello");
-       eo1.setEmp_lname("ishan");
-       eo1.setEmp_city("newdelhi");
 
-       Phone ao=new Phone();
-       ao.setId(6);
-    //    copy constructor
-       eo1.setPhone(ao);
-       try {
-       	session.save(eo1);
-       	tr.commit();
-       	System.out.println("data saved");
-       } catch(Exception e) {
-       	tr.rollback();
-       	e.printStackTrace();
-       }
+        session.save(c1);
+
+        s1.setC(c1);
+        session.save(s1);
+        
+        tr.commit();
+
+        
+
+
+
+
+
+
+
+
+
+
+
+// //        it is used at the time of creating
+//        Employee eo1=new Employee();
+//        eo1.setEmp_fname("hello");
+//        eo1.setEmp_lname("ishan");
+//        eo1.setEmp_city("newdelhi");
+
+//        Phone ao=new Phone();
+//        ao.setId(6);
+//     //    copy constructor
+//        eo1.setPhone(ao);
+//        try {
+//        	session.save(eo1);
+//        	tr.commit();
+//        	System.out.println("data saved");
+//        } catch(Exception e) {
+//        	tr.rollback();
+//        	e.printStackTrace();
+//        }
         
         
 //        now fetching data from database;

@@ -7,14 +7,16 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://localhost:3306/testHibernate</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/OnetoOne</property>
 		<property name="connection.username">root</property>
 		<property name="connection.password">root123</property>
 		
-		
+		<!-- <property name="hibernate.hbm2ddl.auto">create</property> -->
+		<!-- aagar main property main create likhunga update ke jagah toh ye hoga purnawa table aagar hoga database me toh delete kar dega or naya table bnayega or fir value add kar dega or aagar table nhi hoga toh simply table bnayega or value add kare dega  -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<property name="hibernate.show_sql">true</property>
 		
-		<mapping class="c.r.d.Employee" />
+		<mapping class="c.r.d.State" />
+		<mapping class="c.r.d.Capital" />
 	</session-factory>
 </hibernate-configuration>
