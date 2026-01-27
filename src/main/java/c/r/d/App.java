@@ -12,6 +12,37 @@ public class App
 {
     public static void main( String[] args )
     {
+        Employee2 e1=new Employee2();
+        e1.setEmp_id(11);
+        e1.setEmp_name("Ishan");
+
+
+        Employee2 e2=new Employee2();
+        e2.setEmp_id(12);
+        e2.setEmp_name("Ishita");
+        
+        Project p1=new Project();
+        p1.setPro_id(101);
+        p1.setPro_name("Facebook Project");
+
+        Project p2=new Project();
+        p2.setPro_id(102);
+        p2.setPro_name("Amazon Project");
+
+        // list1 me sare Employee2 ka data h
+        List<Employee2>list1=new ArrayList<Employee2>();
+        list1.add(e1);
+        list1.add(e2);
+
+        // list2 me sare project ka data h
+        List<Project>list2=new ArrayList<Project>();
+        list2.add(p1);
+        list2.add(p2);
+
+        e1.setP(list2);
+        p2.setE(list1);
+
+
 
         
         // when we use onetoone then this is the object of that class
@@ -29,33 +60,34 @@ public class App
         // tr.commit();
 
 
-        Employee1 e1=new Employee1();
-        e1.setEmp_id(12);
-        e1.setEmp_name("Ishan");
+// this is used in the onetomany and manytoone mapping line 32 se 58 
+//         Employee1 e1=new Employee1();
+//         e1.setEmp_id(1);
+//         e1.setEmp_name("Ishita");
 
-        Laptop lp1=new Laptop();
-        lp1.setlapy_id(101);
-        lp1.setlapy_name("Apple");
+//         Laptop lp1=new Laptop();
+//         lp1.setlapy_id(105);
+//         lp1.setlapy_name("A");
 
-        Laptop lp2=new Laptop();
-        lp2.setlapy_id(102);
-        lp2.setlapy_name("Acer");
+//         Laptop lp2=new Laptop();
+//         lp2.setlapy_id(106);
+//         lp2.setlapy_name("B");
 
-        Laptop lp3=new Laptop();
-        lp3.setlapy_id(103);
-        lp3.setlapy_name("HP");
+//         Laptop lp3=new Laptop();
+//         lp3.setlapy_id(107);
+//         lp3.setlapy_name("C");
 
-        List<Laptop>list=new ArrayList<Laptop>();
-        list.add(lp1);
-        list.add(lp2);
-        list.add(lp3);
-//  line 53 is written for mapping onetomany
-        e1.setLpts(list);
+//         List<Laptop>list=new ArrayList<Laptop>();
+//         list.add(lp1);
+//         list.add(lp2);
+//         list.add(lp3);
+// //  line 53 is written for mapping onetomany
+//         e1.setLpts(list);
 
-// but line 56 57 58 is written for mapping manytoone
-        lp1.setE(e1);
-        lp2.setE(e1);
-        lp3.setE(e1);
+// // but line 56 57 58 is written for mapping manytoone
+//        lp1.setE(e1);
+//        lp2.setE(e1);
+//        lp3.setE(e1);
 
 
         
@@ -66,9 +98,9 @@ public class App
         Session session=sf.openSession();
         Transaction tr=session.beginTransaction();
         session.save(e1);
-        session.save(lp1);
-        session.save(lp2);
-        session.save(lp3);
+        session.save(e2);
+        session.save(p1);
+        session.save(p2);
         tr.commit();
 
          

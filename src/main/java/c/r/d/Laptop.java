@@ -23,14 +23,17 @@ public class Laptop {
     }
 
 
-    @ManyToOne
-    private Employee1 e;
-    public void setE(Employee1 e){
-        this.e=e;
-    }
-    public Employee1 getE(){
-        return e;
-    }
+    // This field must be mapped to a foreign key column in Laptop table.
+    // Hibernate maps the primary key of the Employee table as a foreign key in the Laptop table.
+    // This happens because of @ManyToOne
+   @ManyToOne
+   private Employee1 e;
+   public void setE(Employee1 e){
+       this.e=e;
+   }
+   public Employee1 getE(){
+       return e;
+   }
 
     
 
